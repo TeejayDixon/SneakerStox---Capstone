@@ -1,2 +1,0 @@
-# SneakerStox
-Final Flatiron Project
