@@ -1,11 +1,15 @@
 class User < ApplicationRecord
+  has_many :orders
+  has_many :ordersneakers, through: :orders
+  
   has_secure_password
 
-validates :username, 
+validates :email, 
         presence: true, 
         uniqueness: true,
-        length: { maximum: 18 }
+        length: { maximum: 25 }
         
-  validates :name, presence: true
+ 
+ 
 
 end
