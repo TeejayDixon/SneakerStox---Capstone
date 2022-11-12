@@ -20,7 +20,7 @@ function HomepageNav() {
   
   return (
     
-    <div class="container-fluid-nav">
+    <div className="container-fluid-nav">
        <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
         <MDBNavbarToggler
@@ -31,7 +31,7 @@ function HomepageNav() {
           aria-label='Toggle navigation'
           onClick={() => setShowNavCentred(!showNavCentred)}
         >
-          <MDBIcon icon='bars' fas />
+          <MDBIcon icon='bars' fas/>
         </MDBNavbarToggler>
 
         <MDBCollapse navbar show={showNavCentred} center id='navbarCenteredExample'>

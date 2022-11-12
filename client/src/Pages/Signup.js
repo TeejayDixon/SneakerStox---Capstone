@@ -28,7 +28,7 @@ function Signup() {
      
   return (
 
-    <>
+    <div>
       <form onSubmit={handleSubmit}>
         <label>Full name</label>
         <input value={fullname} onChange={(e) => setFullName(e.target.value)} />
@@ -38,7 +38,7 @@ function Signup() {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">Submit</button>
       </form>
-    </>
+    </div>
   )
 }
 

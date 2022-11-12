@@ -67,6 +67,8 @@ function LoginForm() {
 
 
   return (
+
+    <div>
     <form onSubmit={handleSubmit}>
 
     
@@ -139,6 +141,7 @@ function LoginForm() {
 
       </MDBContainer>
       </form>
+    </div>
   )
 }
 

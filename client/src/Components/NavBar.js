@@ -25,8 +25,10 @@ const {current, setCurrentUser, onLogout} = useContext(CartContext);
 
 
   return (
+
+    
     <BrowserRouter>
-      
+      <div>
       <Navbar>
       <Container>
         <Navbar.Brand href="/">SneakerStox</Navbar.Brand>
@@ -65,7 +67,8 @@ const {current, setCurrentUser, onLogout} = useContext(CartContext);
             
         </Navbar.Collapse>
       </Container>
-      </Navbar> 
+        </Navbar> 
+      </div>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/sell" element={<Sell />} />

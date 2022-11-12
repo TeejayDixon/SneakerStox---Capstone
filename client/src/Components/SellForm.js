@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 function SellForm() {
   return (
+    <div>
     <Form>
       <fieldset>
         <Form.Group className="mb-3">
@@ -41,7 +42,8 @@ function SellForm() {
         </Form.Group>
         <Button type="submit">Sell</Button>
       </fieldset>
-    </Form>
+      </Form>
+  </div>
   )
 }
 

@@ -4,9 +4,8 @@ function Sell() {
 
 
 
-  return (
-    <SellForm />
-  )
+  return <SellForm />
+  
 }
 
 

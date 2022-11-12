@@ -1,21 +1,23 @@
-import {
-  MDBCarousel,
-  MDBCarouselItem,
-} from 'mdb-react-ui-kit';
+ import {
+   MDBCarousel,   MDBCarouselItem,
+ } from 'mdb-react-ui-kit';
 import HomepageNav from '../Components/HomePageNav'
-import HomePageShoes from '../Components/HomePageShoes'
+import HomePageSection from './HomePageSection';
 
 
 
 
-function Home() {
+
+
+
+function Home({sneakers}) {
 
 
 
   return (
-    <div class="homepage">
+    <div className="homepage">
 
-    <div classname="carousel ">
+    <div className="carousel ">
     <MDBCarousel showControls>
       <MDBCarouselItem
         className='w-100 d-block'
@@ -43,10 +45,10 @@ function Home() {
       </div>
 
       
-      <div>
-        <HomePageShoes />
-      </div>
 
+      <div>
+        <HomePageSection />
+     </div>
 
       </div>
     
