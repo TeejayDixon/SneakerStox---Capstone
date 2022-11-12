@@ -11,6 +11,7 @@ import Signup from '../Pages/Signup'
 import Login from '../Pages/Login'
 import Home from '../Pages/Home'
 import { CartContext } from '../CartContext'
+// import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 function NavBar() {
 
@@ -43,7 +44,7 @@ const {current, setCurrentUser, onLogout} = useContext(CartContext);
           <Nav.Link href="/sell">Sell</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/help">Help</Nav.Link>
-            
+
             {current ? (
               
                 <Navbar.Text>

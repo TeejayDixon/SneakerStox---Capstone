@@ -1,8 +1,12 @@
+import SellForm from '../Components/SellForm'
+
 function Sell() {
 
 
 
-  return <h1>Sell</h1>
+  return (
+    <SellForm />
+  )
 }
 
 

@@ -2,6 +2,9 @@ import {
   MDBCarousel,
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
+import HomepageNav from '../Components/HomePageNav'
+import HomePageShoes from '../Components/HomePageShoes'
+
 
 
 
@@ -15,7 +18,7 @@ function Home() {
     <div classname="carousel ">
     <MDBCarousel showControls>
       <MDBCarouselItem
-        className='w-100 h-25 d-block'
+        className='w-100 d-block'
         itemId={1}
         src='https://mdbootstrap.com/img/new/slides/041.jpg'
         alt='...'
@@ -35,6 +38,15 @@ function Home() {
       </MDBCarousel>
       </div>
       
+      <div>
+      <HomepageNav />
+      </div>
+
+      
+      <div>
+        <HomePageShoes />
+      </div>
+
 
       </div>
     
