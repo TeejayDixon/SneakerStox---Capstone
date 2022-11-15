@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './Pages/App';
 import reportWebVitals from './reportWebVitals';
-import { CartContext } from "./CartContext"
-import {BrowserRouter as Router} from "react-router-dom"
+import { BrowserRouter } from 'react-router-dom'
+import { SneakerProvider } from './SneakerContext'
+
 
 
 
@@ -11,11 +12,11 @@ import {BrowserRouter as Router} from "react-router-dom"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
- <Router>
-  <CartContext.Provider>
+ <BrowserRouter>
+  <SneakerProvider>
       <App />
-    </CartContext.Provider>
-</Router>
+ </SneakerProvider>
+</BrowserRouter>
   
 );
 

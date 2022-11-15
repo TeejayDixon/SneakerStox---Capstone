@@ -16,7 +16,7 @@ const FooterBanner = () => {
           <p>SMALL TEXT</p>
           <h3>MID TEXT</h3>
           <p>DESCRIPTION</p>
-          <Link to={`/product`}>
+          <Link to="">
             <button type="button">
               TEXT
             </button>

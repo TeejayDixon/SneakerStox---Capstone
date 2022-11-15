@@ -121,6 +121,8 @@ width: 100%;
 
 .product-name{
   font-weight: 500;
+  inline-size: 150px; 
+  overflow: hidden;
 }
 .product-price{
   font-weight: 800;

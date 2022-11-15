@@ -27,7 +27,7 @@ def create
 
 
 def update
-  user = User.update!(user_params)
+  user = User.update(user_params)
   render json: user
 end
 

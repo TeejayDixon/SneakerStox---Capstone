@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { CartContext } from "../CartContext"
-import { Product, FooterBanner, HeroBanner } from '../Components'
-import { Link, Routes, Route } from "react-router-dom"
+import { Product, FooterBanner, HeroBanner, Cart } from '../Components'
+import { Routes, Route } from "react-router-dom"
 import Layout from '../Components/Layout'
 import ProductDetails from '../Pages/Product/ProductDetails'
-import Home from './Home'
+import Home from '../Components/Home'
+import useSneaker from '../SneakerContext'
+import Login from './Login'
+import Signup from './Signup'
 
 
 
 
-function App({children}) {
-const [sneakers, setSneakers] = useState([])
+
+function App({ children }) {
+  
 const [current, setCurrentUser] = useState(null)
 const [currentSneaker, setCurrentSneaker] = useState()
-
+const { sneakers, setSneakers } = useSneaker()
+  
   useEffect(() => {
     fetch(`/sneakers`)
       .then(response => response.json())
@@ -40,43 +44,24 @@ console.log(sneakers)
 
   return (
     
+  <>
    
-    <div>
-      <CartContext.Provider value={{ sneakers, setSneakers, current, setCurrentUser }} >
-  
-    <Layout>
-      
-      <HeroBanner />
-      
-      {/* <div className="products-heading">
-          <h2>Trending</h2>
-          <p>Build your sneaker collection</p>
-        </div> */}
-        
-        
-          <Product />
-        
-      
-      
-        <FooterBanner />
-
-      
-    </Layout>
-  
-      </CartContext.Provider>
   
     
-    
-     
       
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/products" element={<Product  />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="products/:id" element={<ProductDetails />} />
+        <Route path="products" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />}/>
      </Routes>
-   </div>
+   
   
-    
+    </>
   )
 }
 
