@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import '../login.css'
-import useCurrentUser from '../UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 
-const Login = () => {
+const Login = ({ current, setCurrentUser }) => {
+
+
 
   let navigate = useNavigate()
 
-  const { current, setCurrentUser } = useCurrentUser()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([])
-  console.log(current)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -34,11 +34,13 @@ const Login = () => {
           r.json().then((err) => setErrors(err.errors))
         }
       })
+
+    function onLogin(user) {
+      setCurrentUser(user);
+    }
+
   }
 
-  function onLogin(user) {
-    setCurrentUser(user);
-  }
 
 
 
@@ -64,6 +66,9 @@ const Login = () => {
         </a>
         <Link to="/signup">
           <p>Create Account</p>
+        </Link>
+        <Link to="/">
+          <p>Home Page</p>
         </Link>
         {errors.map((error) => (
           <Alert severity="error">

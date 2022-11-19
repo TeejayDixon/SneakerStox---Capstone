@@ -60,3 +60,7 @@ gem 'openssl'
 gem 'uri'
 
 gem 'email_validator'
+
+gem 'stripe'
+
+gem 'sinatra'

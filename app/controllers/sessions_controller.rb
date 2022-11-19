@@ -14,6 +14,11 @@ skip_before_action :authorize, only: :create
         end
     end
 
+    def current 
+        render json: @current_user 
+    end
+
+
     def destroy 
         session.delete :user_id 
         head :no_content

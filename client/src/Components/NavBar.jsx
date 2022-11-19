@@ -1,20 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineShopping } from 'react-icons/ai'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid'
-import useCurrentUser from '../UserContext'
+import { CheckoutForm } from './'
+import useCurrentCart from '../CartContext'
 
-const NavBar = () => {
 
-  const { current, setCurrentUser, onLogout } = useCurrentUser()
+const NavBar = ({ onLogout }) => {
+
+  const [current, setCurrentUser] = useState(null)
+
+  const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice, setShowCart, showCart } = useCurrentCart()
 
   function handleLogout() {
     fetch('/logout', {
       method: "DELETE",
     }).then((user) => onLogout(user))
   }
+
+
+  useEffect(() => {
+    fetch('/me').then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setCurrentUser(user))
+      }
+    });
+  }, []);
+
 
 
   return (
@@ -35,10 +49,11 @@ const NavBar = () => {
             </Stack>
 
             <button type="button"
-              className="cart-icon" onClick="">
+              className="cart-icon" onClick={() => setShowCart(true)}>
               <AiOutlineShopping />
-              <span className="cart-item-qty">1</span>
+              <span className="cart-item-qty">{totalQuantities}</span>
             </button>
+            {showCart && <CheckoutForm showCart={showCart} setShowCart={setShowCart} />}
           </Grid>)
 
           :

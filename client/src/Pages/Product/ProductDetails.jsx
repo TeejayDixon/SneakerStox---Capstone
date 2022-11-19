@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
-import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import Select from "react-select";
+import useCurrentCart from '../../CartContext'
+import { toast } from 'react-hot-toast'
+import React, { useEffect, useState } from 'react'
 
 
 
 
 const ProductDetails = () => {
 
-  const [sneakers, setSneakers] = useState([])
-  const [index, setIndex] = useState(0);
+
+
+  const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice, qty, setQty, decQty,
+    incQty } = useCurrentCart()
+  const [sneakers, setSneakers] = useState([]);
+
 
 
   let { id } = useParams()
@@ -21,6 +27,42 @@ const ProductDetails = () => {
       .then(data => setSneakers(data)
       )
   }, []);
+
+  const onAdd = (quantity) => {
+    const checkProductInCart = cartItems.find((item) => item.id === sneakers.id);
+
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + sneakers.estimatedMarketValue * quantity);
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+
+    if (checkProductInCart) {
+      const updatedCartItems = cartItems.map((cartProduct) => {
+        if (cartProduct.id === sneakers.id) return {
+          ...cartProduct,
+          quantity: cartProduct.quantity + quantity
+        }
+      })
+
+      setCartItems(updatedCartItems);
+    } else {
+      sneakers.quantity = quantity;
+
+      setCartItems([...cartItems, { ...sneakers }]);
+    }
+
+    toast.success(`${sneakers.name} added to the cart.`);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   const customStyles = {
     control: (base, state) => ({
@@ -141,13 +183,12 @@ const ProductDetails = () => {
             {/* <span className="minus" onClick=""><AiOutlineMinus /></span>
             <span className="num"></span>
             <span className="plus" onClick=""><AiOutlinePlus /></span> */}
-            <Select styles={customStyles} options={options} />
           </p>
         </div>
         <div className="buttons">
-          <Link to="/cart" >
-            <button type="button" className="add-to-cart" onClick="">Add to Cart</button>
-          </Link>
+
+          <button onClick={() => onAdd(sneakers.id)} type="button" className="add-to-cart" >Add to Cart</button>
+
           <button type="button" className="buy-now" onClick="">Buy Now</button>
         </div>
       </div>

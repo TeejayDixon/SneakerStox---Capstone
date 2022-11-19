@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Toaster } from 'react-hot-toast'
 import App from './Pages/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { SneakerProvider } from './SneakerContext'
+import { CartProvider } from './CartContext'
+
+
+
+
+
 
 
 
@@ -12,10 +19,13 @@ import { SneakerProvider } from './SneakerContext'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
- <BrowserRouter>
-  <SneakerProvider>
-      <App />
- </SneakerProvider>
+<BrowserRouter>
+    <CartProvider>
+         <SneakerProvider>
+                <Toaster />
+                <App />
+        </SneakerProvider>
+    </CartProvider>
 </BrowserRouter>
   
 );

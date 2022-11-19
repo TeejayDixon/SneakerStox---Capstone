@@ -11,7 +11,7 @@ const HeroBanner = () => {
         <h3>MID TEXT</h3>
         <img src={shoe1} className="hero-banner-image" />
 
-        <Link to="">
+        <Link to="/products">
           <button type="button">BUTTON TEXT</button>
         </Link>
         <div className="desc">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_06_034931) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_17_114558) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -101,6 +101,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_034931) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "wish_items", force: :cascade do |t|
+    t.bigint "sneaker_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "rating", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sneaker_id"], name: "index_wish_items_on_sneaker_id"
+    t.index ["user_id"], name: "index_wish_items_on_user_id"
+  end
+
   add_foreign_key "category_options", "categories"
   add_foreign_key "category_options", "sneakers"
   add_foreign_key "order_sneakers", "orders"
@@ -108,4 +118,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_034931) do
   add_foreign_key "orders", "users"
   add_foreign_key "sales", "sneakers"
   add_foreign_key "sales", "users"
+  add_foreign_key "wish_items", "sneakers"
+  add_foreign_key "wish_items", "users"
 end
