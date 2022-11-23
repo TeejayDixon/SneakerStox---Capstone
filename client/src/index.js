@@ -5,11 +5,8 @@ import App from './Pages/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { SneakerProvider } from './SneakerContext'
+import { UserProvider } from './UserContext'
 import { CartProvider } from './CartContext'
-
-
-
-
 
 
 
@@ -19,11 +16,16 @@ import { CartProvider } from './CartContext'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
+ 
+
 <BrowserRouter>
     <CartProvider>
-         <SneakerProvider>
+            <SneakerProvider>
+                <UserProvider>
                 <Toaster />
-                <App />
+                
+                    <App />
+               </UserProvider> 
         </SneakerProvider>
     </CartProvider>
 </BrowserRouter>

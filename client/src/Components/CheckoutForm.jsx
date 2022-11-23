@@ -1,104 +1,104 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai'
-import { TiDeleteOutline } from 'react-icons/ti'
-import useCurrentCart from '../CartContext'
-import useSneaker from '../SneakerContext'
+import React, { useEffect, useState } from "react";
+import {
+  PaymentElement,
+  useStripe,
+  useElements
+} from "@stripe/react-stripe-js";
 
-const CheckoutForm = () => {
+export default function CheckoutForm() {
+  const stripe = useStripe();
+  const elements = useElements();
 
-  const cartRef = useRef()
-  const { cartItems,
-    setCartItems,
-    totalQuantities,
-    setTotalQuantities,
-    totalPrice,
-    setTotalPrice,
-    setShowCart,
-    showCart } = useCurrentCart()
-  const { sneakers } = useSneaker()
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  let foundProduct;
-  let index;
+  useEffect(() => {
+    if (!stripe) {
+      return;
+    }
 
-  const onRemove = (sneakers) => {
-    foundProduct = cartItems.find((item) => item.id === sneakers.id);
+    const clientSecret = new URLSearchParams(window.location.search).get(
+      "payment_intent_client_secret"
+    );
 
-    const newCartItems = cartItems.filter((item) => item.id !== sneakers.id);
-    setTotalPrice((prevTotalPrice) => 0 && prevTotalPrice - foundProduct.price * foundProduct.quantity);
-    setTotalQuantities(prevTotalQuantities => 0 && prevTotalQuantities - foundProduct.quantity)
-    setCartItems(newCartItems);
+    if (!clientSecret) {
+      return;
+    }
+
+    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+      switch (paymentIntent.status) {
+        case "succeeded":
+          setMessage("Payment succeeded!");
+          break;
+        case "processing":
+          setMessage("Your payment is processing.");
+          break;
+        case "requires_payment_method":
+          setMessage("Your payment was not successful, please try again.");
+          break;
+        default:
+          setMessage("Something went wrong.");
+          break;
+      }
+    });
+  }, [stripe]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!stripe || !elements) {
+      // Stripe.js has not yet loaded.
+      // Make sure to disable form submission until Stripe.js has loaded.
+      return;
+    }
+
+    setIsLoading(true);
+
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        // Make sure to change this to your payment completion page
+        return_url: "http://localhost:4000/ordercomplete",
+        receipt_email: email,
+      },
+    });
+
+    // This point will only be reached if there is an immediate error when
+    // confirming the payment. Otherwise, your customer will be redirected to
+    // your `return_url`. For some payment methods like iDEAL, your customer will
+    // be redirected to an intermediate site first to authorize the payment, then
+    // redirected to the `return_url`.
+    if (error.type === "card_error" || error.type === "validation_error") {
+      setMessage(error.message);
+    } else {
+      setMessage("An unexpected error occurred.");
+    }
+
+    setIsLoading(false);
+  };
+
+  const paymentElementOptions = {
+    layout: "tabs"
   }
 
-
   return (
-
-    <div className="cart-wrapper" ref={cartRef}>
-      <div className="cart-container">
-        <button type="button" className="cart-heading" onClick={() => setShowCart()}>
-
-          <AiOutlineLeft />
-          <span className="heading">In Cart</span>
-          <span className="cart-num-items">({totalQuantities} items)</span>
-        </button>
-
-        {cartItems.length < 1 && (
-          <div className="empty-cart">
-            <AiOutlineShopping size={150} />
-            <h3>Your Cart Is Empty</h3>
-            <Link to="/">
-              <button type="button" onClick={() => setShowCart(false)}
-                className="btn">
-                Continue Shopping
-              </button>
-            </Link>
-          </div>
-        )}
-
-        <div className="product-container">
-          {cartItems.length >= 1 && cartItems.map((item,
-            index) => (
-            <div className="product" key={item.id}>
-              <img src={item.image} className="cart-product-image" />
-              <div className="item-desc">
-                <div className="flex top">
-                  <h5>{item.name}</h5>
-                  <h4>${item.estimatedMarketValue}</h4>
-                </div>
-                <div className="flex bottom">
-                  <p>
-
-
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  className="remove-item"
-                  onClick={onRemove}
-                >
-                  <TiDeleteOutline />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-        {cartItems.length >= 1 && (
-          <div className="cart-bottom">
-            <div className="total">
-              <h3>Subtotal:</h3>
-              <h3>${totalPrice}</h3>
-            </div>
-            <div className="btn-container">
-              <button type="button" className="btn" onClick="">
-                Pay with Stripe
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-
-  )
+    <form id="payment-form" onSubmit={handleSubmit}>
+      <input
+        id="email"
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter email address"
+      />
+      <PaymentElement id="payment-element" options={paymentElementOptions} />
+      <button disabled={isLoading || !stripe || !elements} id="submit">
+        <span id="button-text">
+          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+        </span>
+      </button>
+      {/* Show any error or success messages */}
+      {message && <div id="payment-message">{message}</div>}
+    </form>
+  );
 }
-
-export default CheckoutForm

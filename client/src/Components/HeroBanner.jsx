@@ -7,17 +7,17 @@ const HeroBanner = () => {
   return (
     <div className="hero-banner-container">
       <div>
-        <p className="beats-solo">SMALL TEXT</p>
-        <h3>MID TEXT</h3>
+        <p className="beats-solo">JORDAN I RETRO HIGH</p>
+        <h3>Shattered Backboard 3.0</h3>
         <img src={shoe1} className="hero-banner-image" />
 
         <Link to="/products">
-          <button type="button">BUTTON TEXT</button>
+          <button type="button">SHOP NOW</button>
         </Link>
-        <div className="desc">
-          <h5>Description</h5>
-          <p>DESCRIPTION</p>
-        </div>
+        {/* <div className="desc">
+          <h5>OTHER COLORWAYS AVAILABLE</h5>
+          <p>OTHER</p>
+        </div> */}
       </div>
 
     </div>

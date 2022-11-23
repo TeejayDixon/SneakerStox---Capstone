@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../login.css'
 import useCurrentUser from '../UserContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Signup = () => {
@@ -9,7 +9,7 @@ const Signup = () => {
 
 
   const { setCurrentUser, current } = useCurrentUser()
-
+  let navigate = useNavigate()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -30,6 +30,7 @@ const Signup = () => {
     })
       .then((r) => r.json())
       .then((newUser) => setCurrentUser(console.log("newUser", newUser)))
+      .then(navigate("/", { state: { message: "Access Granted" } }))
   }
 
 

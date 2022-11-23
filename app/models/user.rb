@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :orders
   has_many :ordersneakers, through: :orders
+  has_many :wish_items
   
   has_secure_password
 

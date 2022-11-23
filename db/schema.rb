@@ -97,6 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_114558) do
     t.string "phone"
     t.string "billing_address"
     t.string "profile_picture"
+    t.integer "current_order", default: null
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -104,7 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_114558) do
   create_table "wish_items", force: :cascade do |t|
     t.bigint "sneaker_id", null: false
     t.bigint "user_id", null: false
-    t.integer "rating", default: 1
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sneaker_id"], name: "index_wish_items_on_sneaker_id"

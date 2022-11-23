@@ -5,6 +5,6 @@ class Order < ApplicationRecord
 
   validates :order_address, presence: true
   validates :order_email, presence: true 
-  validates_format_of :order_email, with: EMAIL_REGEX
+ 
 
 end

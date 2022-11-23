@@ -1,10 +1,25 @@
+import { createContext, useContext, useState, useEffect, } from 'react'
 
-import { createContext, useContext, useState } from 'react'
 
 const UserContext = createContext([])
 
 export const UserProvider = ({ children }) => {
-  const [ current, setCurrentUser] = useState([]);
+
+  const [current, setCurrentUser] = useState([]);
+ 
+  
+
+  useEffect(() => {
+    fetch('/me').then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setCurrentUser(user))
+      }
+    });
+  }, []);
+
+  
+  
+
   return (
     <UserContext.Provider value={{ current, setCurrentUser }}>
       {children}

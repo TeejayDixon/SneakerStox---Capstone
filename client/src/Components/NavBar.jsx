@@ -6,13 +6,15 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid'
 import { CheckoutForm } from './'
 import useCurrentCart from '../CartContext'
+import Avatar from '@mui/material/Avatar';
+
 
 
 const NavBar = ({ onLogout }) => {
 
   const [current, setCurrentUser] = useState(null)
 
-  const { cartItems, setCartItems, totalQuantities, setTotalQuantities, totalPrice, setTotalPrice, setShowCart, showCart } = useCurrentCart()
+  const { totalQuantities, setShowCart, showCart } = useCurrentCart()
 
   function handleLogout() {
     fetch('/logout', {
@@ -34,7 +36,7 @@ const NavBar = ({ onLogout }) => {
   return (
     <div className="navbar-container">
       <p>
-        <Link to="/">SneakerStox</Link>
+        <Link className="title-name" to="/">SneakerStox</Link>
       </p>
 
       {
@@ -45,7 +47,12 @@ const NavBar = ({ onLogout }) => {
               <Link to="/login" >
                 <Button onClick={handleLogout} color="success" display="flex" size="medium" variant="contained">Logout</Button>
               </Link>
-              <Button color="secondary" size="medium" variant="contained">WishList</Button>
+              <Link to='wishlist'>
+                <Button color="secondary" size="medium" variant="contained">WishList</Button>
+              </Link>
+              <Link to="/userprofile">
+                <Avatar src="/broken-image.jpg" />
+              </Link>
             </Stack>
 
             <button type="button"
