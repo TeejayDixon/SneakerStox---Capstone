@@ -51,7 +51,7 @@ const NavBar = ({ onLogout }) => {
                 <Button color="secondary" size="medium" variant="contained">WishList</Button>
               </Link>
               <Link to="/userprofile">
-                <Avatar src="/broken-image.jpg" />
+                <Avatar className="avatar" src="/broken-image.jpg" />
               </Link>
             </Stack>
 

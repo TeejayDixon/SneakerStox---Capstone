@@ -794,6 +794,10 @@ margin-top: 160px;
   transform:scale(1.1,1.1)
 }
 
+.avatar{
+  margin-right: 12px;
+}
+
 .form-style-7{
 	max-width:400px;
 	margin:50px auto;

@@ -132,12 +132,38 @@ const ProductDetails = () => {
         <p>{sneakers.story}</p>
         <p className="price">${sneakers.estimatedMarketValue}</p>
         <div className="quantity">
-          <h3>Select Size</h3>
-          <p className="quantity-desc">
-            {/* <span className="minus" onClick=""><AiOutlineMinus /></span>
+
+          <h3>Size:</h3>
+          <select>
+            <option>Select</option>
+            <option>3.5</option>
+            <option>4</option>
+            <option>4.5</option>
+            <option>5</option>
+            <option>5.5</option>
+            <option>6</option>
+            <option>6.5</option>
+            <option>7</option>
+            <option>7.5</option>
+            <option>8</option>
+            <option>8.5</option>
+            <option>9</option>
+            <option>9.5</option>
+            <option>10</option>
+            <option>10.5</option>
+            <option>11</option>
+            <option>11.5</option>
+            <option>12</option>
+            <option>12.5</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+          </select>
+          {/* <p className="quantity-desc">
+            <span className="minus" onClick=""><AiOutlineMinus /></span>
             <span className="num"></span>
-            <span className="plus" onClick=""><AiOutlinePlus /></span> */}
-          </p>
+            <span className="plus" onClick=""><AiOutlinePlus /></span>
+          </p> */}
         </div>
         <div className="buttons">
 
