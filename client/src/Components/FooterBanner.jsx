@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import shoe4 from '../assets/shoe2.png'
 
 
 const FooterBanner = () => {
@@ -7,22 +8,22 @@ const FooterBanner = () => {
     <div className="footer-banner-container">
       <div className="banner-desc">
         <div className="left">
-          <p>TEXT</p>
-          <h3>LARGE TEXT1</h3>
-          <h3>LARGE TEXT 2</h3>
-          <p>SALE TIME</p>
+          <p>AVAILABLE NOW</p>
+          <h3>10% OFF</h3>
+          {/* <h3>LARGE TEXT 2</h3> */}
+          <p>24HR SALE</p>
         </div>
         <div className="right">
-          <p>SMALL TEXT</p>
-          <h3>MID TEXT</h3>
-          <p>DESCRIPTION</p>
-          <Link to="">
+          <p>AIR JORDAN IV</p>
+          <h3>TRAVIS SCOTT </h3>
+          {/* <p>DESCRIPTION</p> */}
+          <Link to="/products">
             <button type="button">
-              TEXT
+              SHOP NOW
             </button>
           </Link>
         </div>
-        <img src="" className="footer-banner-image" />
+        <img src={shoe4} className="footer-banner-image" width={600} />
       </div>
     </div>
   )

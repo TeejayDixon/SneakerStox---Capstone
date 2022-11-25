@@ -173,10 +173,10 @@ width: 100%;
 }
 .hero-banner-image{
   position: absolute;
-  top: 0%;
+  top: 4%;
   right:20%;
-  width: 450px;
-  height: 450px;
+  width: 500px;
+  /* height: 500px; */
 }
 
 
@@ -219,7 +219,7 @@ text-align: end;
 }
 .footer-banner-container{
   padding: 100px 40px;
-  background-color: #f02d34;
+  background-color: #2d92f0;
   border-radius: 15px;
   position: relative;
   height: 400px;
@@ -236,7 +236,7 @@ text-align: end;
   border-radius: 15px;
   padding: 10px 16px;
   background-color: white;
-  color: red;
+  color: rgb(0, 0, 0);
   border: none;
   margin-top: 40px;
   font-size: 18px;
@@ -255,8 +255,8 @@ text-align: end;
   position: absolute;
   /* top: -35%;
   left: 8%; */
-  top: -25%;
-  left: 25%;
+  top: -19%;
+  left: 22%;
 }
 .banner-desc .right{
   line-height: 1.4;
@@ -643,7 +643,8 @@ margin-top: 160px;
     width: 77%;
     left: 30%;
     top: 6%;
-    height: 56%
+    height: 56%;
+    
   }
   .banner-desc .left h3{
     font-weight: 900;
