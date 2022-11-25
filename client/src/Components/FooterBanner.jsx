@@ -15,7 +15,7 @@ const FooterBanner = () => {
         </div>
         <div className="right">
           <p>AIR JORDAN IV</p>
-          <h3>TRAVIS SCOTT </h3>
+          <h3>CACTUS JACK</h3>
           {/* <p>DESCRIPTION</p> */}
           <Link to="/products">
             <button type="button">

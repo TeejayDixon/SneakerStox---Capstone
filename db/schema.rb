@@ -97,7 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_114558) do
     t.string "phone"
     t.string "billing_address"
     t.string "profile_picture"
-    t.integer "current_order", default: null
+    t.integer "current_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

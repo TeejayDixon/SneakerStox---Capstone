@@ -144,6 +144,102 @@ image: "https://image.goat.com/attachments/product_template_pictures/images/056/
 links: "https://goat.com/sneakers/a-ma-maniere-x-wmns-air-jordan-3-retro-sp-violet-ore-dh3434-110"
 )
 
+shoe11 = Sneaker.create(
+  sku:"308497-406",
+brand:"Jordan",
+name:"Jordan 4 Retro Travis Scott Cactus Jack",
+colorway:"University Blue/Black-Varsity Red",
+gender:"men",
+silhouette:"Air Jordan 4",
+releaseYear:"2018",
+releaseDate:"2018-06-09",
+retailPrice: 225,
+estimatedMarketValue: 650,
+story:"Music artist Travis Scott hails from Houston, where the Oilers used to take the field in red, white and blue uniforms. The Travis Scott x Air Jordan 4 Retro &#39;Cactus Jack&#39; colorway pays tribute to the city’s bygone football team with a Durabuck leather upper dressed in University Blue and a Varsity Red insole. The black lace cage and a heel panel feature a light blue speckle pattern. Cactus Jack branding appears on the left heel in Varsity Red, with a matching Jumpman logo on the right.",
+image:"https://image.goat.com/attachments/product_template_pictures/images/078/714/431/original/365514_00.png.png",
+links:"https://goat.com/sneakers/travis-scott-x-air-jordan-4-retro-cactus-jack-308497-406"
+)
+
+shoe12 = Sneaker.create(
+  sku:"CQ4277-001",
+brand:"Jordan",
+name:"Jordan 1 Retro Low OG SP Travis Scott",
+colorway:"Black/Dark Mocha-University Red-Sail",
+gender:"men",
+silhouette:"Air Jordan 1",
+releaseYear:"2019",
+releaseDate:"2019-07-20",
+retailPrice: 130,
+estimatedMarketValue: 1550,
+story:"Travis Scott and Jordan Brand collaborate on an Air Jordan 1 Low, taking similar design cues from the high-top version. An oversized backward facing Swoosh is featured prominently on the lateral side of the shoe, while a regular Swoosh graces the medial side. Black and Dark Mocha nubuck dominate the upper, with a few pops of University Red adding a nice contrast. Travis Scott details are subtly placed on the shoe, with the ‘Cactus Jack’ logo appearing on the tongue, medial side panel and sockliner. The back heel tabs feature intricately stitched logos, with the Air Jordan Wings on the right shoe and Scott’s crudely drawn face on the left shoe.",
+image: "https://image.goat.com/attachments/product_template_pictures/images/079/325/271/original/522750_00.png.png",
+links: "https://goat.com/sneakers/travis-scott-x-air-jordan-1-low-mocha-cq4277-001"
+)
+
+shoe13 = Sneaker.create(
+  sku:"384664-060",
+brand:"Jordan",
+name:"Jordan 6 Retro Black Infrared (2019)",
+colorway:"Black/Infrared",
+gender:"men",
+silhouette:"Air Jordan 6",
+releaseYear:"2019",
+releaseDate:"2019-02-16",
+retailPrice: 200,
+estimatedMarketValue: 227,
+story:"The 2019 edition of the Air Jordan 6 Retro ‘Infrared’ is true to the original colorway, which Michael Jordan wore when he captured his first NBA title. Dressed primarily in black nubuck with a reflective 3M layer underneath, the mid-top features Infrared accents on the midsole, heel tab and lace lock. Nike Air branding adorns the heel and sockliner, an OG detail last seen on the 2000 retro.",
+image: "https://image.goat.com/attachments/product_template_pictures/images/079/298/647/original/464372_00.png.png",
+links: "https://goat.com/sneakers/air-jordan-6-retro-black-infrared-384664-060"
+)
+
+shoe14 = Sneaker.create(
+  sku:"555088-028",
+brand:"Jordan",
+name:"Jordan 1 Retro High Shattered Backboard 3.0",
+colorway:"Black/Pale Vanilla-Starfish",
+gender:"men",
+silhouette:"Air Jordan 1",
+releaseYear:"2019",
+releaseDate:"2019-10-26",
+retailPrice: 160,
+estimatedMarketValue: 294,
+story:"The Air Jordan 1 Retro High OG &#39;Shattered Backboard 3.0&#39; revisits a coveted colorway inspired by a Michael Jordan backboard-breaking dunk that took place during a 1985 Nike exhibition game. The shoe&#39;s colorway of black, Pale Vanilla and Starfish matches the colors of the jersey MJ sported that day. Released in October 2019, this third edition of the sneaker features a crinkled, glossy patent leather upper that alludes to the hoop&#39;s broken glass, a fitting tribute to an early iconic moment.",
+image: "https://image.goat.com/attachments/product_template_pictures/images/079/484/443/original/479026_00.png.png",
+links: "https://goat.com/sneakers/air-jordan-1-retro-high-og-shattered-backboard-3-0-555088-028"
+)
+
+shoe15 = Sneaker.create(
+  sku:"CT5053-001",
+brand:"Nike",
+name:"Nike SB Dunk Low Travis Scott (Regular Box)",
+colorway:"Black/Black-Parachute Beige-Petra Brown",
+gender:"men",
+silhouette:"Dunk SB",
+releaseYear:"2020",
+releaseDate:"2020-02-29",
+retailPrice: 150,
+estimatedMarketValue: 1199,
+story:"The Travis Scott x Dunk Low SB shows off a unique patchwork motif on the upper, featuring a tan leather base with plaid quarter panels and paisley print overlays, the latter made to tear away to reveal hidden elephant print underneath. The dueling patterns are complemented by rope laces, Cactus Jack tongue tags and mismatched black and pink Swooshes on each shoe. A white midsole and tan rubber outsole anchor the complex design.",
+image: "https://image.goat.com/attachments/product_template_pictures/images/080/156/179/original/585882_00.png.png",
+links: "https://goat.com/sneakers/travis-scott-x-dunk-low-sb-ct5053-101"
+)
+
+shoe15 = Sneaker.create(
+  sku:"DD1876-700",
+brand:"Nike",
+name:"Nike Air Force 1 Low Off-White ICA University Gold",
+colorway:"University Gold/Black-Metallic Silver",
+gender:"men",
+silhouette:"Air Force 1",
+releaseYear:"2021",
+releaseDate:"2021-07-10",
+retailPrice: 150,
+estimatedMarketValue: 1244,
+story:"The Off-White x Nike Air Force 1 Low ‘Lemonade’ reunites Virgil Abloh with Bruce Kilgore’s iconic 1982 basketball shoe. Abloh dips the leather upper in a rich mustard yellow hue, save for a silver Swoosh outlined in contrast zigzag stitching and the designer’s signature Helvetica text on the medial quarter panel. A matching yellow midsole features ‘AIR’ printed on the lateral sidewall. Exposed foam construction is utilized on the collar and tongue, the latter decorated with a woven tag that displays ‘OFF’ Nike Air branding. Abloh leaves his final mark by looping his signature zip tie around the laces.",
+image: "https://image.goat.com/attachments/product_template_pictures/images/057/397/855/original/724734_00.png.png",
+links: "https://goat.com/sneakers/off-white-x-air-force-1-low-university-gold-dd1876-700"
+)
+
 puts "alright, your sneakers are there my boy 💯"
 
 puts "getting user now brodie...."

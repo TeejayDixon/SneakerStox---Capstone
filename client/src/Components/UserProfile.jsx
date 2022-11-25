@@ -63,7 +63,7 @@ const UserProfile = () => {
 
 
   return (
-    <div>
+    <div className="user-profile">
       <form onSubmit={handleSubmit}>
         <Stack
           component="form"
