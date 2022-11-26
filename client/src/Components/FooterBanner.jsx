@@ -17,7 +17,7 @@ const FooterBanner = () => {
           <p>AIR JORDAN IV</p>
           <h3>CACTUS JACK</h3>
           {/* <p>DESCRIPTION</p> */}
-          <Link to="/products">
+          <Link to="/products/10">
             <button type="button">
               SHOP NOW
             </button>
