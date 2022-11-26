@@ -76,6 +76,4 @@ test:
 #
 production:
   <<: *default
-  database: Phase_5_Capstone_production
-  username: Phase_5_Capstone
-  password: <%= ENV["PHASE_5_CAPSTONE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>]
