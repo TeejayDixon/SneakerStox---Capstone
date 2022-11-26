@@ -4,7 +4,7 @@ const SneakerContext = createContext([])
 
 export const SneakerProvider = ({ children }) => {
   const [sneakers, setSneakers] = useState([]);
-  const [currentSneaker, setCurrentSneaker] = useState()
+  
 
 
   

@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
 import useCurrentCart from '../../CartContext'
 import useCurrentUser from '../../UserContext'
 import { toast } from 'react-hot-toast'
@@ -16,7 +15,6 @@ const ProductDetails = () => {
   const [size, setSize] = useState("")
   const [condition, setCondition] = useState("")
   const [sale, setSale] = useState([])
-  const [index, setIndex] = useState([])
   const [sellToggle, setSellToggle] = useState(false)
 
 
