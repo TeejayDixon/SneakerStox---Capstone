@@ -25,11 +25,11 @@ This is my final full-stack project with Flatiron School.
 
 ## How to run build
 - Fork & Clone
-- Bundle Install
-- cd into client folder & run "npm install"
-- cd.. back to root 
-- run "rails s" in one terminal
-- open separate terminal and run "npm start -prefix client"
+- ```Bundle Install```
+- ```cd``` into client folder & run ```npm install```
+- ```cd..``` back to root 
+- run ```rails s``` in one terminal
+- open separate terminal and run ```npm start -prefix client```
 
 ## Deployed Site 
 https://sneakerstox.onrender.com/
