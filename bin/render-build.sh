@@ -9,7 +9,5 @@ cp -a client/build/. public/
 
 #Build commands for back end
 bundle install
-bundle exec rake assets:precompile
-bundle exec rake assets:clean
 bundle exec rake db:migrate VERSION=0
 bundle exec rake db:seed
