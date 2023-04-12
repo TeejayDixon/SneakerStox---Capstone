@@ -223,7 +223,7 @@ DEPENDENCIES
   uri
 
 RUBY VERSION
-   ruby 2.7.4p191
+   ruby 3.1.0
 
 BUNDLED WITH
    2.3.25
