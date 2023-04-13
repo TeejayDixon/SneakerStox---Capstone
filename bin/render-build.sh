@@ -8,7 +8,6 @@ npm install --prefix client && npm run build --prefix client
 cp -a client/build/. public/
 
 #Build commands for back end
-service postgresql start
 bundle install
 bundle exec rake db:migrate VERSION=0
 bundle exec rake db:migrate
